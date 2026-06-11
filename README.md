@@ -1,4 +1,4 @@
-<img width="404" height="600" alt="image" src="https://github.com/user-attachments/assets/bd130cbb-ae88-4c15-9c08-a7eff09698c1" />
+<img width="303" height="450" alt="image" src="https://github.com/user-attachments/assets/bd130cbb-ae88-4c15-9c08-a7eff09698c1" />
 
 
 Hugo de Vries (1848-1935)  
