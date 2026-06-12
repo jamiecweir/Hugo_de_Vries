@@ -8,24 +8,19 @@ Hugo de Vries (1848-1935)
 # Paper Title.
 This repository contains the data and analytical pipeline for Weir and Phillimore (2026). Title. Citation.
 
-The paper explores the role of spring caterpillar abundance in buffering the negative fitness consequences of phenological mismatch with the timing of peak abundance for three species of passerine birds. In the workflow, we analyse caterpillar abundance across spring and estimate the timing and magnitude of peak abundance over 14 sites and 15 years. We estimate the breeding performance of three woodland passerine species, and relate this to different aspects of the spring caterpillar peak, principally timing and height. We also consider the relationship between phenological mismatch and temperature in this caterpillar-bird system.
+The paper explores the effect of asycnrhony on the performance of polyphagous spring caterpillars, across a food-web matrix of six consumer and eight host-plant taxa. Caterpillar hatch-time/diapause break was manipulated to induce various levels of asynchrony relative to bud-burst time on the host trees. Caterpillars were reared in captivity to assay variation in performance among trophic interactions at different levels of asynchrony. We consider these results in light of the resilience of these species under climate change and the extent to which such trophic interactions are buffered against asynchrony. 
 
 ## Data
-Data consist of caterpillar abundance data (`frass_data_FINAL.csv`) and bird breeding performance data (`Nest_XXX.csv`) from 14 sites across England, collected over the 15-year period from 2008-2023. Processed data used in subsequent analyses are also provided (`complete_data.csv`). 
-MetOffice HadUK data are required for site temperature analyses, but the base data are not provided directly here. Files covering the complete period April-June for all site by year combinations are required (see `2_temperature_data_extraction.R`), and can be obtained directly from the MetOffice. However, relevant processed temperature data used for subsequent analyses are provided here (`mean_monthly temp.csv`, `mean_temp_data_XXX.csv`, `complete_data_with_temp.csv`).
-Geolocations of study sites are also included (`site_locations.csv`).
+Data ('all_synchrony_data.csv') consists of caterpillar (species) performance on different host-plant species (host) with simulated late-hatching asynchrony (day, with 0 as perfect synchrony, to a maximum of 65 days late-hatching). Performance was measured as: survival (survp, 0/1, survival from the start of the experiment to successful pupation); pupal mass (masspm, mg, surviving pupae measured during summer diapause); and development time (durationl, calendar days, time from the start of the experiment to pupation). Caterpillars were reared in uniquely numbered 'rearing cultures' (culu) of 10 individuals. of Female moths are typically larger than males, particularly species which do not feed as adults and must therefore carry a complete burden of eggs. Pupaae can be sexed (sex) by inspecting genital pores, shape, and size. The experiment was carried out over two years (2020 and 2021), with year one (2020) assaying a smaller subset of host-caterpillar interactions. Because different tree species have different spring phenologies (i.e., come into leaf at slightly different times) it was not possible to start all experimental treatments at exactly the same time. For example, Hawthorn comes into leaf consistently before Oak. Therefore, different host treatments were established on different dates (date_est), within a ~5 day time-frame. 
 
 ## Workflow pipeline
-This pipeline contains the analytical milestones needed to reproduce the results of this study. It does not contain code used for data visualisation (e.g. predictions and plotting), preferences for which will vary.
+This pipeline contains the analytical milestones needed to reproduce the results of this study, including data visualisation (e.g., predictions and plotting).
 
-- **Step 1** `1_frass_modelling.R` : Estimating the caterpillar peak date and height (i.e. peak caterpillar biomass) in each site by year combination across available data. 
-- **Step 2** `2_temperature_data_extraction.R` : Extract interpolated MetOffice temperature data for spring in each site by year combination relevant to our dataset.
-- **Step 3** `3_temperature_variation_modelling.R` : Model variation in spring temperature across all sites over time.
-- **Step 4** `4_bird_data_processing_and_mismatch_estimation.R` : Collate bird breeding performance data across sites and years, pairing data with relevant caterpillar abundance data and estimating trophic mismatch at the nest-level (i.e. difference in timing between peak chick demand within a nest and date of peak caterpillar abundance).
-- **Step 5** `5_temperature_effects_on_mismatch.R` : Model the relationship between temperature and trophic mismatch in three target bird species.
-- **Step 6** `6_bird_breeding_performance_modelling.R` : Model the effects of mismatch and caterpillar abundance on breeding performance across three target bird species.
-- **Step 7** `7_variance_component_estimation.R` : Estimate variance components for all relevant models, (i) temperature variation, (ii) temperature-mismatch relationship, (iii) effects of mismatch and resource abundance on bird breeding performance.
-- **Step 8** `8_forecast_mismatch_productivity_under_climate_change.R` : Rough forecast of mismatch under climate change based on modelled relationship, for Table 2. 
+- **Step 1** `1_modelling.R` : Estimating the caterpillar peak date and height (i.e. peak caterpillar biomass) in each site by year combination across available data. 
+- **Step 2** `2_predictions.R` : Extract interpolated MetOffice temperature data for spring in each site by year combination relevant to our dataset.
+- **Step 3** `3_plotting_code.R` : Model variation in spring temperature across all sites over time.
+- **Step 4** `4_variance_comp_estimation.R` : Collate bird breeding performance data across sites and years, pairing data with relevant caterpillar abundance data and estimating trophic mismatch at the nest-level (i.e. difference in timing between peak chick demand within a nest and date of peak caterpillar abundance).
+- **Step 5** `5_slope_extraction_and_plotting.R` : Model the relationship between temperature and trophic mismatch in three target bird species.
 
 ## Rights
 The authors reserve all rights to the data, which cannot be utilised in whole or in part without their prior consent.
