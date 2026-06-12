@@ -20,7 +20,7 @@ This pipeline contains the analytical milestones needed to reproduce the results
 - **Step 2** `2_predictions.R` : Generate model predictions for: (1) average trend across all caterpillar/host-plant interactions, (2) average trend for each caterpillar species across all host-plant species, (3) average trend for each host-plant species across all caterpillar species, (4) trend for each caterpillar/host-plant species combination.
 - **Step 3** `3_plotting_code.R` : Plotting code for Figures 2 and 3. 
 - **Step 4** `4_variance_comp_estimation.R` : Generate and plot variance decomposition for main models, estimating relative contribution of caterpillar species, host-plant species, and the caterpillar by host interaction in explaining patterns of variation. 
-- **Step 5** `5_slope_extraction_and_plotting.R` : Extract slopes of change in survival with increasing asynchrony.
+- **Step 5** `5_slope_extraction_and_plotting.R` : Extract and plot slopes of change in survival with increasing asynchrony.
 
 ## Rights
 The authors reserve all rights to the data, which cannot be utilised in whole or in part without their prior consent.
